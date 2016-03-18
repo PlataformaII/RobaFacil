@@ -21,6 +21,22 @@
         <activity
             android:name=".somos"
             android:label="@string/title_activity_somos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".com_ven"
+            android:label="@string/title_activity_com_ven"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".resgistro"
+            android:label="@string/title_activity_resgistro"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".compra"
+            android:label="@string/title_activity_compra"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".venta"
+            android:label="@string/title_activity_venta"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

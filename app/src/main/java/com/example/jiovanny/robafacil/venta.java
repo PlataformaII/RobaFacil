@@ -6,13 +6,18 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
-public class somos extends AppCompatActivity {
+public class venta extends AppCompatActivity {
+
+    private Spinner spiProductos;
+    private ArrayAdapter<CharSequence> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_somos);
+        setContentView(R.layout.activity_venta);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -24,6 +29,12 @@ public class somos extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
+        spiProductos = (Spinner) findViewById(R.id.spiProductos);
+        adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spiProductos.setAdapter(adapter);
+
     }
 
 }

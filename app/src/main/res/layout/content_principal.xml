@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/lblNombre"
                 android:layout_gravity="center_horizontal"
-                android:text="Roba Fácil" />
+                android:text="Roba Fácil"
+                android:textSize="30dp" />
 
             <LinearLayout
                 android:orientation="horizontal"

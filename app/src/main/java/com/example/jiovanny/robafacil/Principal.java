@@ -13,7 +13,10 @@ import android.widget.Button;
 
 public class Principal extends AppCompatActivity {
 
- Button btnSomos;
+    private Button btnSomos, btnSesion, btnRegistrate;
+    //Button btnSesion;
+
+
 
 
     @Override
@@ -31,6 +34,24 @@ public class Principal extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
+        btnSesion = (Button) findViewById(R.id.btnSesion);
+        btnSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Principal.this, com_ven.class);
+                startActivity(intent);
+            }
+        });
+
+        btnRegistrate = (Button) findViewById(R.id.btnRegistrate);
+        btnRegistrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Principal.this, resgistro.class);
+                startActivity(intent);
+            }
+        });
 
         btnSomos = (Button) findViewById(R.id.btnSomos);
         btnSomos.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +85,5 @@ public class Principal extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
-        //esto es un comentario :D
     }
 }

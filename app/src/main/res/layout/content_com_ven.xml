@@ -9,54 +9,49 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.jiovanny.robafacil.somos"
-    tools:showIn="@layout/activity_somos">
+    tools:context="com.example.jiovanny.robafacil.com_ven"
+    tools:showIn="@layout/activity_com_ven"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView2" >
+        android:id="@+id/scrollView3" >
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="¿Quiénes Somos?"
-                android:id="@+id/txtViewQuiSomos"
-                android:layout_gravity="center_horizontal"
-                android:textSize="40dp" />
+            android:layout_height="match_parent"
+            android:weightSum="1">
 
             <ImageView
-                android:layout_width="229dp"
-                android:layout_height="229dp"
-                android:id="@+id/imgViewSomos"
+                android:layout_width="213dp"
+                android:layout_height="232dp"
+                android:id="@+id/imgLogo"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/somos"
-                android:adjustViewBounds="true" />
+                android:src="@drawable/logo"
+                android:layout_weight="0.22" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jiovanny Jimenez Moreno"
-                android:id="@+id/txtJiovanny"
+                android:text="Roba Fácil"
+                android:id="@+id/lblRoba"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comprar"
+                android:id="@+id/btnComprar"
                 android:layout_gravity="center_horizontal" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Javier Escudero Gallegos"
-                android:id="@+id/txtJavier"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Daniel Del Rio"
-                android:id="@+id/txtDaniel"
+                android:text="Vender"
+                android:id="@+id/btnVender"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
     </ScrollView>
