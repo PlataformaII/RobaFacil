@@ -106,7 +106,6 @@ public class Principal extends AppCompatActivity {
         }
         if (!(usuario.getContrasena().equals(edtTxtContra.getText().toString())&&usuario.getCorreo().equals(edtTxtUsuario.getText().toString()))){
             Toast.makeText(this,"Correo o contraseña incorrecta",Toast.LENGTH_SHORT).show();
-            Toast.makeText(this,usuario.getId()+usuario.getCorreo()+usuario.getContrasena()+usuario.getEstado()+usuario.getNombre(),Toast.LENGTH_SHORT).show();
             return;
         }
         Toast.makeText(this,"Ingresaste Correctamente",Toast.LENGTH_SHORT).show();

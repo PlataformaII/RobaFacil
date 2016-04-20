@@ -1,5 +1,6 @@
 package com.example.jiovanny.robafacil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -50,6 +51,8 @@ public class resgistro extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 guardarSQLite();
+                Intent intent = new Intent(getApplicationContext(),Principal.class);
+                startActivity(intent);
             }
         });
         spiEstados.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,7 +60,6 @@ public class resgistro extends AppCompatActivity{
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 TextView miTexto= (TextView) view;
                 estado=miTexto.getText().toString();
-                Toast.makeText(getApplicationContext(),"Tu seleccionaste el estado de: "+estado,Toast.LENGTH_SHORT ).show();
             }
 
             @Override
