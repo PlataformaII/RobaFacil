@@ -1,6 +1,8 @@
 package com.example.jiovanny.robafacil;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +21,7 @@ public class Principal extends AppCompatActivity {
     //Button btnSesion;
     private EditText edtTxtUsuario,edtTxtContra;
     private String error="";
+    private MyBaseDatos mydb;
 
 
     @Override
@@ -42,9 +45,11 @@ public class Principal extends AppCompatActivity {
         btnSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                    Intent intent = new Intent(Principal.this, com_ven.class);
-                    startActivity(intent);
+                if (edtTxtContra.getText().toString().isEmpty()||edtTxtUsuario.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Ingresa la contraseña y el usuario\n"+"para poder ingresar",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                cargarSQLite();
 
 
             }
@@ -67,6 +72,7 @@ public class Principal extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        mydb = new MyBaseDatos(this,null,null,1);
     }
 
     @Override
@@ -92,4 +98,42 @@ public class Principal extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void cargarSQLite(){
+        Usuario usuario= mydb.getUsuario(edtTxtUsuario.getText().toString());
+        if (usuario==null){
+            Toast.makeText(this,"usuario no encontrado",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!(usuario.getContrasena().equals(edtTxtContra.getText().toString())&&usuario.getCorreo().equals(edtTxtUsuario.getText().toString()))){
+            Toast.makeText(this,"Correo o contraseña incorrecta",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,usuario.getId()+usuario.getCorreo()+usuario.getContrasena()+usuario.getEstado()+usuario.getNombre(),Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(this,"Ingresaste Correctamente",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Principal.this, com_ven.class);
+        startActivity(intent);
+        /*
+        SQLiteDatabase sqLitedb=mydb.getReadableDatabase();
+        String[] columnas={
+            MyBaseDatos.KEY_CONTRA_USUA,MyBaseDatos.KEY_EMAIL
+        };
+        String usuario=MyBaseDatos.KEY_EMAIL+" LIKE '"+edtTxtUsuario.getText().toString()+"'";
+        String contra=MyBaseDatos.KEY_CONTRA_USUA+" LIKE '"+edtTxtContra.getText().toString()+"'";
+        String resContra=MyBaseDatos.KEY_CONTRA_USUA+" DESC";
+        String resCorreo=MyBaseDatos.KEY_EMAIL+" DESC";
+        Cursor cursor=sqLitedb.query(MyBaseDatos.TABLA_USARIO,columnas,usuario,null,null,null,resCorreo);
+        Cursor cursor2=sqLitedb.query(MyBaseDatos.TABLA_USARIO,columnas,contra,null,null,null,resContra);
+        if (cursor.getCount()!=0&&cursor2.getCount()!=0){
+            cursor.moveToFirst();
+            Toast.makeText(this,"Ingresaste Correctamente",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Principal.this, com_ven.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(this,"el correo o contraseña incorrecta",Toast.LENGTH_SHORT).show();
+        }
+        mydb.close();*/
+
+    }
+
+
 }

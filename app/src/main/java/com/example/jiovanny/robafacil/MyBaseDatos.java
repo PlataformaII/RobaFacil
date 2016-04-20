@@ -13,14 +13,14 @@ public class MyBaseDatos extends SQLiteOpenHelper {
     //constantes
     private static final int VERSION_DATABASE = 1;
     private static final String NOMBRE_DATABASE = "robafacil.db";
-    private static final String TABLA_USARIO = "usuario";
+    public static final String TABLA_USARIO = "usuario";
     private static final String KEY_ID_USUA = "id";
     private static final String KEY_NOM_USUA = "nombre";
-    private static final String KEY_CONTRA_USUA = "contrasena";
-    private static final String KEY_EMAIL = "email";
+    public static final String KEY_CONTRA_USUA = "contrasena";
+    public static final String KEY_EMAIL = "email";
     private static final String KEY_ESTADO = "estado";
     private static final String[] COLUMNAS_USUARIO = {KEY_ID_USUA, KEY_NOM_USUA, KEY_CONTRA_USUA, KEY_EMAIL, KEY_ESTADO};
-    private static final String TABLA_PRODUCTO = "producto";
+    public static final String TABLA_PRODUCTO = "producto";
     private static final String KEY_ID_PRO = "id";
     private static final String KEY_NOM_PRO = "nombre";
     private static final String KEY_DESC_ART = "descripcion";
@@ -70,9 +70,9 @@ public class MyBaseDatos extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Usuario getUsuario(int id){
+    public Usuario getUsuario(String email){
         SQLiteDatabase db= this.getWritableDatabase();
-        Cursor cursor=db.query(TABLA_USARIO,COLUMNAS_USUARIO,"id= ?",new String[]{String.valueOf(id)},null,null,null,null);
+        Cursor cursor=db.query(TABLA_USARIO,COLUMNAS_USUARIO,KEY_EMAIL+"= ?",new String[]{email},null,null,null,null);
         if (cursor==null)
             return null;
         if(!cursor.moveToFirst())
