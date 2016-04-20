@@ -39,6 +39,7 @@ public class Principal extends AppCompatActivity {
         btnSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(Principal.this, com_ven.class);
                 startActivity(intent);
             }
