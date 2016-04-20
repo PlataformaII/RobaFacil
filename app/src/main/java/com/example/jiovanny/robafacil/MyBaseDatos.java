@@ -30,21 +30,22 @@ public class MyBaseDatos extends SQLiteOpenHelper {
 
 
     public MyBaseDatos(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+        super(context, NOMBRE_DATABASE, factory, VERSION_DATABASE);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREAR_TABLA_USUARIO = "CREATE TABLE "+TABLA_USARIO+"("+KEY_ID_USUA+" INTEGER PRIMARY KEY,"+KEY_NOM_USUA+" TEXT,"+KEY_CONTRA_USUA+" TEXT,"+KEY_EMAIL+" TEXT,"+KEY_ESTADO+" TEXT)";
+        String CREAR_TABLA_USUARIO = "CREATE TABLE " + TABLA_USARIO + "("+KEY_ID_USUA + " INTEGER PRIMARY KEY," + KEY_NOM_USUA + " TEXT,"+KEY_CONTRA_USUA+" TEXT,"+KEY_EMAIL+" TEXT," + KEY_ESTADO + " TEXT)";
         db.execSQL(CREAR_TABLA_USUARIO);
         String CREAR_TABLA_PRODUCTOS = "CREATE TABLE "+TABLA_PRODUCTO+"("+KEY_ID_PRO+" INTEGER PRIMARY KEY,"+ KEY_NOM_PRO+" TEXT,"+KEY_DESC_ART+" TEXT,"+KEY_PRECIO+" INTEGER,"+KEY_CATEGORIA+" INTEGER)";
+        db.execSQL(CREAR_TABLA_PRODUCTOS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLA_USARIO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_USARIO);
         this.onCreate(db);
-        db.execSQL("DROP TABLE IF EXISTS "+TABLA_PRODUCTO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_PRODUCTO);
         this.onCreate(db);
     }
 

@@ -10,13 +10,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class Principal extends AppCompatActivity {
 
     private Button btnSomos, btnSesion, btnRegistrate;
     //Button btnSesion;
-
-
+    private EditText edtTxtUsuario,edtTxtContra;
+    private String error="";
 
 
     @Override
@@ -34,14 +36,17 @@ public class Principal extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
-
+        edtTxtContra = (EditText)findViewById(R.id.eTxtContra);
+        edtTxtUsuario=(EditText)findViewById(R.id.eTxtUsuario);
         btnSesion = (Button) findViewById(R.id.btnSesion);
         btnSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Principal.this, com_ven.class);
-                startActivity(intent);
+                    Intent intent = new Intent(Principal.this, com_ven.class);
+                    startActivity(intent);
+
+
             }
         });
 
