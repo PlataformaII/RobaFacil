@@ -87,9 +87,9 @@ public class MyBaseDatos extends SQLiteOpenHelper {
         db.close();
         return usuario;
     }
-    public Producto getProducto(int id){
+    public Producto getProducto(String produc){
         SQLiteDatabase db=this.getWritableDatabase();
-        Cursor cursor=db.query(TABLA_PRODUCTO,COLUMNAS_PRODUCTO,"id = ?",new String[]{String.valueOf(id)},null,null,null,null);
+        Cursor cursor=db.query(TABLA_PRODUCTO,COLUMNAS_PRODUCTO,KEY_NOM_PRO+"= ?",new String[]{produc},null,null,null,null);
         if (cursor==null)
             return null;
         if(!cursor.moveToFirst())

@@ -17,13 +17,7 @@
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/searchView" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spiCategorias"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/searchViewProducto" />
 
     <ListView
         android:layout_width="match_parent"

@@ -6,10 +6,10 @@ package com.example.jiovanny.robafacil;
 public class Producto{
     private String nombre,descripcion;
     private int precio, id,categoria;
-    private static final int ELECTRODOMESTICOS =1;
-    private static final int LINEA_BLANCA =2;
-    private static final int MUEBLES =3;
-    private static final int AUTOS =4;
+    public static final int ELECTRODOMESTICOS =1;
+    public static final int LINEA_BLANCA =2;
+    public static final int MUEBLES =3;
+    public static final int AUTOS =4;
 
     public int getCategoria() {
         return categoria;
