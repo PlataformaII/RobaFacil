@@ -3,11 +3,13 @@ package com.example.jiovanny.robafacil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ArrayAdapter;
 import android.widget.SearchView;
+import android.widget.Spinner;
 
 public class compra extends AppCompatActivity {
-    /*private Spinner spiCategorias;
-    private ArrayAdapter<CharSequence> adapter;*/
+    private Spinner spiCategorias;
+    private ArrayAdapter<CharSequence> adapter;
     private SearchView sv;
     private MyBaseDatos mydb;
 
@@ -27,10 +29,10 @@ public class compra extends AppCompatActivity {
             }
         });*/
 
-        /*spiCategorias = (Spinner) findViewById(R.id.spiCategorias);
+        spiCategorias = (Spinner) findViewById(R.id.spiCategorias);
         adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spiCategorias.setAdapter(adapter);*/
+        spiCategorias.setAdapter(adapter);
         sv= (android.widget.SearchView) findViewById(R.id.searchViewP);
 
         mydb = new MyBaseDatos(this,null,null,1);
