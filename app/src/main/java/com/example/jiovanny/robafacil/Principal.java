@@ -18,11 +18,9 @@ import android.widget.Toast;
 public class Principal extends AppCompatActivity {
 
     private Button btnSomos, btnSesion, btnRegistrate;
-    //Button btnSesion;
     private EditText edtTxtUsuario,edtTxtContra;
     private String error="";
     private MyBaseDatos mydb;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +29,6 @@ public class Principal extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
         edtTxtContra = (EditText)findViewById(R.id.eTxtContra);
         edtTxtUsuario=(EditText)findViewById(R.id.eTxtUsuario);
         btnSesion = (Button) findViewById(R.id.btnSesion);
@@ -50,8 +40,6 @@ public class Principal extends AppCompatActivity {
                     return;
                 }
                 cargarSQLite();
-
-
             }
         });
 
@@ -93,9 +81,6 @@ public class Principal extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
-
-
         return super.onOptionsItemSelected(item);
     }
     public void cargarSQLite(){
@@ -108,8 +93,13 @@ public class Principal extends AppCompatActivity {
             Toast.makeText(this,"Correo o contraseña incorrecta",Toast.LENGTH_SHORT).show();
             return;
         }
-        Toast.makeText(this,"Ingresaste Correctamente",Toast.LENGTH_SHORT).show();
+        Bundle user;
+        user = new Bundle();
+        user.putString("USER", edtTxtUsuario.getText().toString());
+
+        Toast.makeText(this, "Ingresaste Correctamente", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Principal.this, com_ven.class);
+        intent.putExtras(user);
         startActivity(intent);
         /*
         SQLiteDatabase sqLitedb=mydb.getReadableDatabase();

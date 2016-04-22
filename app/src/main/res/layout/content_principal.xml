@@ -57,7 +57,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/eTxtUsuario"
                     android:layout_weight="0.78"
-                    android:layout_marginRight="10dp" />
+                    android:layout_marginRight="10dp"
+                    android:inputType="textEmailAddress"
+                    android:hint="ejemplo@algo.com" />
 
             </LinearLayout>
 
@@ -80,7 +82,8 @@
                     android:ems="10"
                     android:id="@+id/eTxtContra"
                     android:layout_weight="1"
-                    android:layout_marginRight="10dp" />
+                    android:layout_marginRight="10dp"
+                    android:hint="******" />
             </LinearLayout>
 
             <Button

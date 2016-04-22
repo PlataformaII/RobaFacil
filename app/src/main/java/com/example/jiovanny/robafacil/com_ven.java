@@ -8,10 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.awt.font.TextAttribute;
 
 public class com_ven extends AppCompatActivity {
 
     private Button btnComprar, btnVender;
+    private TextView txtVwBienvenido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,29 +25,33 @@ public class com_ven extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
         btnComprar = (Button) findViewById(R.id.btnComprar);
+        btnVender = (Button) findViewById(R.id.btnVender);
+        txtVwBienvenido = (TextView) findViewById(R.id.txtVwBienvenido);
+
+        Intent leerUser = getIntent();
+        Bundle userLeido = leerUser.getExtras();
+        String user = userLeido.getString("USER");
+        txtVwBienvenido.setText("Bienvenido: " + user);
+
+        final Bundle envUsuario;
+        envUsuario = new Bundle();
+        envUsuario.putString("Usuario", txtVwBienvenido.getText().toString());
+
         btnComprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(com_ven.this, compra.class);
+                intent.putExtras(envUsuario);
                 startActivity(intent);
             }
         });
 
-        btnVender = (Button) findViewById(R.id.btnVender);
         btnVender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(com_ven.this, venta.class);
+                intent.putExtras(envUsuario);
                 startActivity(intent);
             }
         });

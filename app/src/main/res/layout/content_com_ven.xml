@@ -35,6 +35,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/txtVwBienvenido"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.22" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Roba Fácil"
                 android:id="@+id/lblRoba"
                 android:layout_gravity="center_horizontal"
