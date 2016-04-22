@@ -20,7 +20,11 @@ public class Usuario {
 
     public Usuario() {
     }
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> origin/equipo
     public Usuario(int id,String nombre, String contrasena, String correo, String estado) {
         this.nombre = nombre;
         this.contrasena = contrasena;
