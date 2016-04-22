@@ -1,5 +1,6 @@
 package com.example.jiovanny.robafacil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,15 +30,6 @@ public class venta extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
         spiProductos = (Spinner) findViewById(R.id.spiProductos);
         adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -46,6 +38,12 @@ public class venta extends AppCompatActivity {
         edtTxtNomPro=(EditText)findViewById(R.id.txtNomArt);
         edtTxtPrec=(EditText)findViewById(R.id.txtPrecio);
         btnAgregarProducto=(Button)findViewById(R.id.btnAgregarProducto);
+
+        Intent leerUser = getIntent();
+        Bundle userLeido = leerUser.getExtras();
+        String user = userLeido.getString("USER");
+        Toast.makeText(getApplicationContext(), "" + user, Toast.LENGTH_SHORT).show();
+
         btnAgregarProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +77,7 @@ public class venta extends AppCompatActivity {
             Toast.makeText(this, strError, Toast.LENGTH_SHORT).show();
             return;
         }
+
         Producto pdc= new Producto();
         pdc.setNombre(edtTxtNomPro.getText().toString());
         pdc.setDescripcion(edtTxtDesc.getText().toString());
