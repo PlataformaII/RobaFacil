@@ -20,13 +20,7 @@ public class Usuario {
 
     public Usuario() {
     }
-
-    //Comentario del javi prueba GitHub
-    //Comentario del javi prueba GitHub//Comentario del javi prueba GitHub//Comentario del javi prueba GitHub
-    //Comentario del javi prueba GitHub
-
-
-
+    
     public Usuario(int id,String nombre, String contrasena, String correo, String estado) {
         this.nombre = nombre;
         this.contrasena = contrasena;

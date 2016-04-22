@@ -11,8 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public class compra extends AppCompatActivity {
-    private Spinner spiCategorias;
-    private ArrayAdapter<CharSequence> adapter;
+    /*private Spinner spiCategorias;
+    private ArrayAdapter<CharSequence> adapter;*/
     SearchView searchViewProduc;
     private MyBaseDatos mydb;
 
@@ -32,11 +32,11 @@ public class compra extends AppCompatActivity {
             }
         });*/
 
-        spiCategorias = (Spinner) findViewById(R.id.spiCategorias);
+        /*spiCategorias = (Spinner) findViewById(R.id.spiCategorias);
         adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spiCategorias.setAdapter(adapter);
-        searchViewProduc=(SearchView)findViewById(R.id.searchViewProducto);
+        spiCategorias.setAdapter(adapter);*/
+        searchViewProduc=(SearchView)findViewById(R.id.searchViewP);
 
         mydb = new MyBaseDatos(this,null,null,1);
 
