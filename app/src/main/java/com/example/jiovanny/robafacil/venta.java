@@ -31,6 +31,7 @@ public class venta extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         spiProductos = (Spinner) findViewById(R.id.spiProductos);
+
         adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spiProductos.setAdapter(adapter);
@@ -98,5 +99,9 @@ public class venta extends AppCompatActivity {
         }
         manjedorDb.addProducto(pdc);
         Toast.makeText(this,"Producto Agregado",Toast.LENGTH_SHORT).show();
+        spiProductos.setSelection(0);
+        edtTxtNomPro.setText("");
+        edtTxtDesc.setText("");
+        edtTxtPrec.setText("");
     }
 }
