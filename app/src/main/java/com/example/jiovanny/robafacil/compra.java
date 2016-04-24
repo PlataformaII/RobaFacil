@@ -39,6 +39,7 @@ public class compra extends AppCompatActivity {
         Bundle userLeido = leerUser.getExtras();
         String user = userLeido.getString("USER");
         //Toast.makeText(this, "Compras: " + user, Toast.LENGTH_SHORT).show();
+
         listViewProductos=(ListView)findViewById(R.id.listVwProductos);
         spiCategorias = (Spinner) findViewById(R.id.spiCategorias);
         adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);

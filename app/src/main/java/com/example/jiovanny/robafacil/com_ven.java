@@ -32,7 +32,7 @@ public class com_ven extends AppCompatActivity {
         Intent leerUser = getIntent();
         Bundle userLeido = leerUser.getExtras();
         String user = userLeido.getString("USER");
-        txtVwBienvenido.setText("Bienvenido: " + user);
+        txtVwBienvenido.append(user);
 
         final Bundle envUsuario, envUsuarioVen;
         envUsuario = new Bundle();
