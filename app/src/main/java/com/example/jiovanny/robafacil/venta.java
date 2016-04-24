@@ -42,7 +42,7 @@ public class venta extends AppCompatActivity {
         Intent leerUser = getIntent();
         Bundle userLeido = leerUser.getExtras();
         String user = userLeido.getString("USER");
-        Toast.makeText(getApplicationContext(), "" + user, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Ventas: " + user, Toast.LENGTH_SHORT).show();
 
         btnAgregarProducto.setOnClickListener(new View.OnClickListener() {
             @Override
