@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 /**
  * Created by daniel on 19/04/2016.
@@ -103,6 +104,29 @@ public class MyBaseDatos extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return producto;
+    }
+    public Producto getProducto(int id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor cursor=db.query(TABLA_PRODUCTO,COLUMNAS_PRODUCTO,KEY_ID_PRO+"= ?",new String[]{String.valueOf(id)},null,null,null,null);
+        if (cursor==null)
+            return null;
+        if(!cursor.moveToFirst())
+            return null;
+        Producto producto = new Producto();
+        producto.setId(Integer.parseInt(cursor.getString(0)));
+        producto.setNombre(cursor.getString(1));
+        producto.setDescripcion(cursor.getString(2));
+        producto.setPrecio(Integer.parseInt(cursor.getString(3)));
+        producto.setCategoria(Integer.parseInt(cursor.getString(4)));
+        cursor.close();
+        db.close();
+        return producto;
+    }
+    public int getFilas(){
+        SQLiteDatabase db= this.getWritableDatabase();
+        Cursor cursor=db.query(TABLA_PRODUCTO,COLUMNAS_PRODUCTO,null,null,null,null,null,null);
+        int numFilas=cursor.getCount();
+        return numFilas;
     }
 
 }
