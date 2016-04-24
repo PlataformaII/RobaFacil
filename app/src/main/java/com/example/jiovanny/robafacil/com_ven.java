@@ -34,11 +34,9 @@ public class com_ven extends AppCompatActivity {
         String user = userLeido.getString("USER");
         txtVwBienvenido.append(user);
 
-        final Bundle envUsuario, envUsuarioVen;
+        final Bundle envUsuario;
         envUsuario = new Bundle();
-        /*envUsuarioVen = new Bundle();
-        envUsuario.putString("Usuario", txtVwBienvenido.getText().toString());*/
-        envUsuario.putString("USER", txtVwBienvenido.getText().toString());
+        envUsuario.putString("USER", user);
 
         btnComprar.setOnClickListener(new View.OnClickListener() {
             @Override

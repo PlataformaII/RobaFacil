@@ -35,10 +35,11 @@ public class compra extends AppCompatActivity {
         setContentView(R.layout.activity_compra);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Intent leerUser = getIntent();
+
+        /*Intent leerUser = getIntent();
         Bundle userLeido = leerUser.getExtras();
         String user = userLeido.getString("USER");
-        //Toast.makeText(this, "Compras: " + user, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Compras: " + user, Toast.LENGTH_SHORT).show();*/
 
         listViewProductos=(ListView)findViewById(R.id.listVwProductos);
         spiCategorias = (Spinner) findViewById(R.id.spiCategorias);
@@ -105,13 +106,21 @@ public class compra extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+            Intent leerUser = getIntent();
+            Bundle userLeido = leerUser.getExtras();
+            String user = userLeido.getString("USER");
+
             convertView=lInflater.inflate(R.layout.mostrarproductos,null);
             TextView txtVwNomP=(TextView)convertView.findViewById(R.id.txtVwNomProList);
             TextView txtVwDescP=(TextView)convertView.findViewById(R.id.txtVwDescProList);
             TextView txtVwPreP=(TextView)convertView.findViewById(R.id.txtVwPrecList);
+            TextView txtVwUser = (TextView) convertView.findViewById(R.id.txtVwUserList);
+
             txtVwDescP.setText("Descripción: "+productoArrayList2.get(position).getDescripcion());
             txtVwNomP.setText("Nombre Producto: "+productoArrayList2.get(position).getNombre());
             txtVwPreP.setText("Precio: "+productoArrayList2.get(position).getPrecio()+" Pesos");
+            txtVwUser.setText("Usuario: " + productoArrayList2.get(position).getUser());
+
             return convertView;
         }
     }

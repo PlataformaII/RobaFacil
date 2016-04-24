@@ -4,7 +4,7 @@ package com.example.jiovanny.robafacil;
  * Created by daniel on 19/04/2016.
  */
 public class Producto{
-    private String nombre,descripcion;
+    private String nombre,descripcion, user;
     private int precio, id,categoria;
     public static final int ELECTRODOMESTICOS =1;
     public static final int LINEA_BLANCA =2;
@@ -29,11 +29,12 @@ public class Producto{
     public Producto() {
     }
 
-    public Producto(String nombre, String descripcion, int precio, int id) {
+    public Producto(String nombre, String descripcion, int precio, int id, String user) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.id = id;
+        this.user = user;
     }
 
     public int getId() {
@@ -66,5 +67,13 @@ public class Producto{
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }

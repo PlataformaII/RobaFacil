@@ -40,11 +40,6 @@ public class venta extends AppCompatActivity {
         edtTxtPrec=(EditText)findViewById(R.id.txtPrecio);
         btnAgregarProducto=(Button)findViewById(R.id.btnAgregarProducto);
 
-        Intent leerUser = getIntent();
-        Bundle userLeido = leerUser.getExtras();
-        String user = userLeido.getString("USER");
-        //Toast.makeText(this, "Ventas: " + user, Toast.LENGTH_SHORT).show();
-
         btnAgregarProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +61,10 @@ public class venta extends AppCompatActivity {
         manjedorDb = new MyBaseDatos(this, null, null, 1);
     }
     public void guardarSQLite(){
+        Intent leerUser = getIntent();
+        Bundle userLeido = leerUser.getExtras();
+        String user = userLeido.getString("USER");
+
         String strError="";
         if (edtTxtNomPro.getText().toString().isEmpty())
             strError+="Ingresa el nombre del articulo\n";
@@ -85,6 +84,7 @@ public class venta extends AppCompatActivity {
         pdc.setNombre(edtTxtNomPro.getText().toString());
         pdc.setDescripcion(edtTxtDesc.getText().toString());
         pdc.setPrecio(Integer.parseInt(edtTxtPrec.getText().toString()));
+        pdc.setUser(user);
         switch (categoria){
             case "Selecciona una categoria":
                 break;
