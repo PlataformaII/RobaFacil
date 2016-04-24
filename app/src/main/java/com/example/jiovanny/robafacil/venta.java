@@ -68,13 +68,15 @@ public class venta extends AppCompatActivity {
         String strError="";
         if (edtTxtNomPro.getText().toString().isEmpty())
             strError+="Ingresa el nombre del articulo\n";
+        if (spiProductos.getSelectedItem().toString().equals("Selecciona una categoria"))
+            strError+="Selecciona una categoria\n";
         if (edtTxtDesc.getText().toString().isEmpty())
             strError+="Ingresa una descripción\n";
         if (edtTxtPrec.getText().toString().isEmpty())
             strError+="Ingresa precio\n";
         if (!strError.equals("")){
             strError="Debes llenar los siguientes datos:\n"+strError;
-            Toast.makeText(this, strError, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, strError, Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -83,16 +85,18 @@ public class venta extends AppCompatActivity {
         pdc.setDescripcion(edtTxtDesc.getText().toString());
         pdc.setPrecio(Integer.parseInt(edtTxtPrec.getText().toString()));
         switch (categoria){
-            case "ELECTRODOMESTICOS": pdc.setCategoria(Producto.ELECTRODOMESTICOS);
+            case "Selecciona una categoria":
                 break;
-            case "LINEA_BLANCA":pdc.setCategoria(Producto.LINEA_BLANCA);
+            case "Electrodomesticos": pdc.setCategoria(Producto.ELECTRODOMESTICOS);
                 break;
-            case "MUEBLES":pdc.setCategoria(Producto.MUEBLES);
+            case "Linea Blanca":pdc.setCategoria(Producto.LINEA_BLANCA);
                 break;
-            case"AUTOS":pdc.setCategoria(Producto.AUTOS);
+            case "Muebles":pdc.setCategoria(Producto.MUEBLES);
+                break;
+            case"Autos":pdc.setCategoria(Producto.AUTOS);
                 break;
         }
         manjedorDb.addProducto(pdc);
-        Toast.makeText(this,"Producto Agregado",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Producto Agregado",Toast.LENGTH_SHORT).show();
     }
 }

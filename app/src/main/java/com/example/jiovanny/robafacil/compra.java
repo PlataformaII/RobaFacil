@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ public class compra extends AppCompatActivity {
     private ArrayAdapter<CharSequence> adapter;
     private SearchView sv;
     private MyBaseDatos mydb;
+    private String consultaBus,categoriaBus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +37,27 @@ public class compra extends AppCompatActivity {
         sv= (android.widget.SearchView) findViewById(R.id.searchViewP);
 
         mydb = new MyBaseDatos(this,null,null,1);
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                consultaBus=query;
+                return false;
+
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                consultaBus=newText;
+                categoriaBus=spiCategorias.getSelectedItem().toString();
+                cargarSQLiteProducto();
+                return false;
+            }
+        });
 
     }
     public void cargarSQLiteProducto(){
-        Producto productoB=mydb.getProducto(sv.getQuery().toString());
+        Producto productoB=mydb.getProducto(consultaBus);
+        Toast.makeText(getApplicationContext(),"Este es el query "+ consultaBus +"Categoria "+ categoriaBus,Toast.LENGTH_SHORT).show();
 
     }
 }

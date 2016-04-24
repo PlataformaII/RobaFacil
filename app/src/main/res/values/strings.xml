@@ -46,8 +46,8 @@
     </string-array>
 
     <string-array name="Articulos">
-
-        <item>Electrodomiesticos</item>
+        <item>Selecciona una categoria</item>
+        <item>Electrodomesticos</item>
         <item>Linea Blanca</item>
         <item>Muebles</item>
         <item>Autos</item>
