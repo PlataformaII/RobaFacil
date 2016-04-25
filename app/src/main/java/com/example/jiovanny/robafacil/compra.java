@@ -79,16 +79,12 @@ public class compra extends AppCompatActivity {
                 cargarSQLiteProducto();
                 return false;
             }
-<<<<<<< HEAD
-        });
-    }
 
-=======
         });//fin del metodo OnQueryTextListener
     }//fin del metodoOnCreate
 
     //mantenimiento
->>>>>>> master
+
     public void cargarSQLiteProducto(){
         Producto productoB=mydb.getProducto(consultaBus);
         Toast.makeText(getApplicationContext(),"Este es el query "+ consultaBus +" Categoria "+ categoriaBus,Toast.LENGTH_SHORT).show();
