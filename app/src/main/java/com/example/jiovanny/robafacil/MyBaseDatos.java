@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 /**
  * Created by daniel on 19/04/2016.
@@ -13,6 +14,7 @@ public class MyBaseDatos extends SQLiteOpenHelper {
     //constantes
     private static final int VERSION_DATABASE = 1;
     private static final String NOMBRE_DATABASE = "robafacil.db";
+
     public static final String TABLA_USARIO = "usuario";
     private static final String KEY_ID_USUA = "id";
     private static final String KEY_NOM_USUA = "nombre";
@@ -20,13 +22,15 @@ public class MyBaseDatos extends SQLiteOpenHelper {
     public static final String KEY_EMAIL = "email";
     private static final String KEY_ESTADO = "estado";
     private static final String[] COLUMNAS_USUARIO = {KEY_ID_USUA, KEY_NOM_USUA, KEY_CONTRA_USUA, KEY_EMAIL, KEY_ESTADO};
+
     public static final String TABLA_PRODUCTO = "producto";
     private static final String KEY_ID_PRO = "id";
     private static final String KEY_NOM_PRO = "nombre";
     private static final String KEY_DESC_ART = "descripcion";
     private static final String KEY_PRECIO = "precio";
     private static final String KEY_CATEGORIA = "categoria";
-    private static final String[] COLUMNAS_PRODUCTO = {KEY_ID_PRO, KEY_NOM_PRO, KEY_DESC_ART, KEY_PRECIO,KEY_CATEGORIA};
+    private static final String KEY_USER = "user";
+    private static final String[] COLUMNAS_PRODUCTO = {KEY_ID_PRO, KEY_NOM_PRO, KEY_DESC_ART, KEY_PRECIO,KEY_CATEGORIA, KEY_USER};
 
 
     public MyBaseDatos(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -37,7 +41,8 @@ public class MyBaseDatos extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREAR_TABLA_USUARIO = "CREATE TABLE " + TABLA_USARIO + "("+KEY_ID_USUA + " INTEGER PRIMARY KEY," + KEY_NOM_USUA + " TEXT,"+KEY_CONTRA_USUA+" TEXT,"+KEY_EMAIL+" TEXT," + KEY_ESTADO + " TEXT)";
         db.execSQL(CREAR_TABLA_USUARIO);
-        String CREAR_TABLA_PRODUCTOS = "CREATE TABLE "+TABLA_PRODUCTO+"("+KEY_ID_PRO+" INTEGER PRIMARY KEY,"+ KEY_NOM_PRO+" TEXT,"+KEY_DESC_ART+" TEXT,"+KEY_PRECIO+" INTEGER,"+KEY_CATEGORIA+" INTEGER)";
+
+        String CREAR_TABLA_PRODUCTOS = "CREATE TABLE "+TABLA_PRODUCTO+"("+KEY_ID_PRO+" INTEGER PRIMARY KEY,"+ KEY_NOM_PRO+" TEXT,"+KEY_DESC_ART+" TEXT,"+KEY_PRECIO+" INTEGER,"+KEY_CATEGORIA+" INTEGER,"+KEY_USER+" TEXT)";
         db.execSQL(CREAR_TABLA_PRODUCTOS);
     }
 
@@ -66,6 +71,7 @@ public class MyBaseDatos extends SQLiteOpenHelper {
         valores.put(KEY_DESC_ART,producto.getDescripcion());
         valores.put(KEY_PRECIO,producto.getPrecio());
         valores.put(KEY_CATEGORIA,producto.getCategoria());
+        valores.put(KEY_USER, producto.getUser());
         db.insert(TABLA_PRODUCTO,null,valores);
         db.close();
     }
@@ -100,8 +106,34 @@ public class MyBaseDatos extends SQLiteOpenHelper {
         producto.setDescripcion(cursor.getString(2));
         producto.setPrecio(Integer.parseInt(cursor.getString(3)));
         producto.setCategoria(Integer.parseInt(cursor.getString(4)));
+        producto.setUser(cursor.getString(5));
         cursor.close();
         db.close();
         return producto;
     }
+    public Producto getProducto(int id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor cursor=db.query(TABLA_PRODUCTO,COLUMNAS_PRODUCTO,KEY_ID_PRO+"= ?",new String[]{String.valueOf(id)},null,null,null,null);
+        if (cursor==null)
+            return null;
+        if(!cursor.moveToFirst())
+            return null;
+        Producto producto = new Producto();
+        producto.setId(Integer.parseInt(cursor.getString(0)));
+        producto.setNombre(cursor.getString(1));
+        producto.setDescripcion(cursor.getString(2));
+        producto.setPrecio(Integer.parseInt(cursor.getString(3)));
+        producto.setCategoria(Integer.parseInt(cursor.getString(4)));
+        producto.setUser(cursor.getString(5));
+        cursor.close();
+        db.close();
+        return producto;
+    }
+    public int getFilas(){
+        SQLiteDatabase db= this.getWritableDatabase();
+        Cursor cursor=db.query(TABLA_PRODUCTO,COLUMNAS_PRODUCTO,null,null,null,null,null,null);
+        int numFilas=cursor.getCount();
+        return numFilas;
+    }
+
 }

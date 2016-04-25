@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtVwBienvenido"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="0.22" />
+                android:layout_weight="0.22"
+                android:text="Bienvenido: " />
 
             <TextView
                 android:layout_width="wrap_content"

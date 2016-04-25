@@ -30,6 +30,6 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listVCategorias"
+        android:id="@+id/listVwProductos"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>
