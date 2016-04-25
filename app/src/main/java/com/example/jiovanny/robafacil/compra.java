@@ -55,7 +55,7 @@ public class compra extends AppCompatActivity {
 
         productoArrayList1=new ArrayList<Producto>();
 
-        for (int i=1;i<mydb.getFilas();i++){
+        for (int i=1;i<=mydb.getFilas();i++){
             productoArrayList1.add(mydb.getProducto(i));
         }
 
