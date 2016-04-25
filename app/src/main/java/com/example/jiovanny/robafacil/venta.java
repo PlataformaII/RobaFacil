@@ -16,13 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class venta extends AppCompatActivity {
-
+    //variables usadas en la actividad Venta
     private Spinner spiProductos;
     private ArrayAdapter<CharSequence> adapter;
     private EditText edtTxtNomPro, edtTxtDesc,edtTxtPrec;
     private Button btnAgregarProducto;
     private MyBaseDatos manjedorDb;
     private String categoria;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,25 +32,23 @@ public class venta extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         spiProductos = (Spinner) findViewById(R.id.spiProductos);
-        adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spiProductos.setAdapter(adapter);
         edtTxtDesc=(EditText)findViewById(R.id.txtDescripcion);
         edtTxtNomPro=(EditText)findViewById(R.id.txtNomArt);
         edtTxtPrec=(EditText)findViewById(R.id.txtPrecio);
         btnAgregarProducto=(Button)findViewById(R.id.btnAgregarProducto);
 
-        Intent leerUser = getIntent();
-        Bundle userLeido = leerUser.getExtras();
-        String user = userLeido.getString("USER");
-        //Toast.makeText(this, "Ventas: " + user, Toast.LENGTH_SHORT).show();
+        adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spiProductos.setAdapter(adapter);
 
+        //evento setOnClickListener
         btnAgregarProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 guardarSQLite();
             }
         });
+        //evento setOnItemSelectedListener
         spiProductos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -62,9 +61,16 @@ public class venta extends AppCompatActivity {
 
             }
         });
+        //construimos el objeto.
         manjedorDb = new MyBaseDatos(this, null, null, 1);
-    }
+    }//fin del método onCreate
+
+    //método guardarSQLite
     public void guardarSQLite(){
+        Intent leerUser = getIntent();
+        Bundle userLeido = leerUser.getExtras();
+        String user = userLeido.getString("USER");
+
         String strError="";
         if (edtTxtNomPro.getText().toString().isEmpty())
             strError+="Ingresa el nombre del articulo\n";
@@ -84,6 +90,7 @@ public class venta extends AppCompatActivity {
         pdc.setNombre(edtTxtNomPro.getText().toString());
         pdc.setDescripcion(edtTxtDesc.getText().toString());
         pdc.setPrecio(Integer.parseInt(edtTxtPrec.getText().toString()));
+        pdc.setUser(user);
         switch (categoria){
             case "Selecciona una categoria":
                 break;
@@ -98,5 +105,9 @@ public class venta extends AppCompatActivity {
         }
         manjedorDb.addProducto(pdc);
         Toast.makeText(this,"Producto Agregado",Toast.LENGTH_SHORT).show();
-    }
-}
+        spiProductos.setSelection(0);
+        edtTxtNomPro.setText("");
+        edtTxtDesc.setText("");
+        edtTxtPrec.setText("");
+    }//fin del metodo guardarSQlite
+}//fin de la clase Venta
