@@ -1,0 +1,253 @@
+commit e89660a47325ff1869514923cf23626597e83a82
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Thu May 12 01:14:47 2016 -0600
+
+    Modificaciones
+
+commit cb761b829dddd13689d6ae0beb319c22a13c5981
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 21:58:30 2016 -0600
+
+    sin errores
+
+commit c72b2119b9f4719f52771751b17e5b2cad86a72b
+Merge: b93be3b ddb9375
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 21:51:58 2016 -0600
+
+    X
+
+commit ddb93758fafecff0089a4450414e112b617b8994
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 21:50:39 2016 -0600
+
+    Listo
+
+commit db56aef40362b08c38d55717d79f384ab53e51e8
+Merge: 14c8f93 43a00cd
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 21:37:02 2016 -0600
+
+    Merge branch 'javier'
+
+commit 43a00cd748d9c8f99845d4e3e9cd87c11d23edea
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 21:36:25 2016 -0600
+
+    Comentarios en las clases compra y venta
+
+commit b93be3bd6586b1fa456b05ca9426e1dd71c0cf92
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 13:08:02 2016 -0600
+
+    misc.xml y compra.java
+
+commit cd3d47d90991445c087f53b5a1b096bf86f3d3e1
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Sun Apr 24 12:58:49 2016 -0600
+
+    Error: al dar click en el boton comprar
+
+commit 360c68bbbae0d080e13eba549a2cfcc4e260380d
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Sun Apr 24 11:30:53 2016 -0600
+
+    Boton agregar modificado: borrar los datos de los campos al agregar el producto
+
+commit a2cc146a00f80e3bf8d3b7e4e33e126ef102cded
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Sun Apr 24 11:14:49 2016 -0600
+
+    correo usuario corregido
+
+commit 35b5fa7a1b4ffaf6c1899fde85efb3f399034b28
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 06:32:01 2016 -0600
+
+    Actividad compra muestra base datos productos
+
+commit 505fc87912c89b2bfe2b4f57204667290a989c9e
+Merge: b21a26d 5e94438
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 02:18:16 2016 -0600
+
+    Merge remote-tracking branch 'origin/javier' into equipo
+
+commit b21a26d8d0e8644b8b4e68a147306444e17f0cdf
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Sun Apr 24 02:05:57 2016 -0600
+
+    empezando la Actividad compra
+
+commit 5e94438f7d2864f6eae3c112fecf4eb182685c6f
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Sun Apr 24 00:47:46 2016 -0600
+
+    El valor del correo del usuario ya se puede manejar en las clases venta y compra
+
+commit 26ffb48a402877c4b1303b6865e039fe75fe07f5
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Sat Apr 23 23:35:06 2016 -0600
+
+    En esta rama van a estar los cambios que pueda hacer
+
+commit 14c8f9365d5a49887b0cde00f0d0f669050ad090
+Merge: 6b46d45 76be5e7
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 13:15:08 2016 -0600
+
+    Merge branch 'equipo'
+
+commit 416feac754cd648811efb467d46583f86df2ad40
+Merge: 7004d3e 76be5e7
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Fri Apr 22 13:12:37 2016 -0600
+
+    Este es el proyecto funcional al momento
+
+commit 7004d3e02c75ca119dbaf0d4c316811222c6841a
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Fri Apr 22 13:11:53 2016 -0600
+
+    Este es el proyecto funcional al momento
+
+commit 76be5e7a938a331e3e437683875d218bb604209f
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 13:10:42 2016 -0600
+
+    comentarios
+
+commit 9cd17f700f0d083963ba97b840dbe5056670d433
+Merge: a5a43c5 af888d4
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 13:07:39 2016 -0600
+
+    searchView
+
+commit a5a43c502b1b150a865805816d9f4436d0fb3c88
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 13:05:08 2016 -0600
+
+    spiner
+
+commit af888d45e05a187119d822bd8a0d4069a42f19f5
+Merge: 96576b3 a774c9d
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Fri Apr 22 13:02:57 2016 -0600
+
+    Avance correcto
+
+commit 96576b3688cefba8c1d6a5ca77b34f0b71853c64
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Fri Apr 22 12:53:01 2016 -0600
+
+    Intentos
+
+commit a774c9db3f45128be4b2c2f0c89e0b26867fc934
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 12:50:57 2016 -0600
+
+    SearchView
+
+commit 1031aed2e5a6cb57d017ae0f7d638c26da92821d
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 12:28:09 2016 -0600
+
+    errores
+
+commit 6b46d45e21eba46b2eeab4d8257f02db5c12d479
+Merge: 9022534 f6a33fb
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 11:10:44 2016 -0600
+
+    problema
+
+commit 9022534d5b081475c3256efd6a4678022357e63e
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 10:58:09 2016 -0600
+
+    prueba
+
+commit f6a33fb0f10c66f6b024a3816f0256ccf37f78cf
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Fri Apr 22 10:54:10 2016 -0600
+
+    Comentarios
+
+commit 99490e2885d63911d8e361b56913f0a2b548fc4c
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 10:48:12 2016 -0600
+
+    comenzamos
+
+commit d85ee1e27a497e7fe61e00ba1cafb1609d4ad943
+Author: Javier Escudero <j.escudero.g@hotmail.com>
+Date:   Fri Apr 22 10:35:16 2016 -0600
+
+    Comentario prueba
+
+commit 9789cb9131187082bf31afa6f37fc77d5039a7df
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Apr 22 10:11:29 2016 -0600
+
+    modificacion x
+
+commit 340eeb03cb6bbe8b65adb7d93ea226b04af346d2
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Thu Apr 21 00:34:27 2016 -0600
+
+    Trabajando con la Ventana de Productos
+
+commit 5f948ddc8fd3eaaa144c43a18dee316ae60e8283
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Wed Apr 20 23:07:56 2016 -0600
+
+    editText
+
+commit 924264d6ae845efedb14c9e4874fd64d31e9d656
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Wed Apr 20 14:49:59 2016 -0600
+
+    Base de datos Usuarios Implementada2
+
+commit e5c77de7c743ade5fffc6a1c216941ca0a49eee0
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Wed Apr 20 14:12:46 2016 -0600
+
+    Base de datos Usuarios Implementada
+
+commit f834493d80525668b05ee69bca504aac591ca8dc
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Wed Apr 20 02:05:36 2016 -0600
+
+    Registro Implementado
+
+commit c1717666bcf13e53cb4760fd741cafb581d5413f
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Tue Apr 19 22:55:35 2016 -0600
+
+    Base de datos
+
+commit 0d6eb7aacd1061ff99ea318f7649ae0359687ad2
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Tue Apr 19 20:55:01 2016 -0600
+
+    empezamos tercera unidad
+
+commit 43bc60334ef3e4bb5327ecc20d02fbcd2f787240
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Fri Mar 18 09:03:43 2016 -0700
+
+    18032016
+
+commit 251f74231b7876acbade30f7f1f6a989750e0dc2
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Mon Mar 14 09:14:31 2016 -0700
+
+    Comentario
+
+commit 918dd92291d5f6d47c140e89bf4be44b05437bd4
+Author: danieldec <danieldelrioc@gmail.com>
+Date:   Mon Mar 14 09:03:23 2016 -0700
+
+    Inicio

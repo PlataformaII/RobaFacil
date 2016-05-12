@@ -52,7 +52,7 @@ public class compra extends AppCompatActivity{
         listViewProductos=(ListView)findViewById(R.id.listVwProductos);
         spiCategorias = (Spinner) findViewById(R.id.spiCategorias);
         sv=(android.widget.SearchView) findViewById(R.id.searchViewP);
-        
+
         adapter = ArrayAdapter.createFromResource(this, R.array.Articulos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spiCategorias.setAdapter(adapter);
