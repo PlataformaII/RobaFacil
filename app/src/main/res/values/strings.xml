@@ -6,6 +6,10 @@
     <string name="title_activity_resgistro">Crear Cuenta</string>
     <string name="title_activity_compra">Comprar</string>
     <string name="title_activity_venta">Vender</string>
+    <string name="nombVendedor">Nombre Vendedor:</string>
+    <string name="corrVendedor">Correo Vendedor</string>
+    <string name="ubiVendedor">Ubicación Vendor</string>
+    <string name="mapaVendedor">Da clic Ubicación Vendedorr</string>
 
     <string-array name="Estados">
 
