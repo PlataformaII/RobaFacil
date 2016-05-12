@@ -9,10 +9,10 @@
     <string name="nombVendedor">Nombre Vendedor:</string>
     <string name="corrVendedor">Correo Vendedor</string>
     <string name="ubiVendedor">Ubicación Vendor</string>
-    <string name="mapaVendedor">Da clic Ubicación Vendedorr</string>
+    <string name="mapaVendedor">Ver ubicación</string>
 
     <string-array name="Estados">
-
+        <item>Selecciona el estado</item>
         <item>Aguascalientes</item>
         <item>Baja California</item>
         <item>Baja California Sur</item>
@@ -57,5 +57,7 @@
         <item>Autos</item>
 
     </string-array>
+    <string name="title_activity_info_ven">Informacion Vendedor</string>
+    <string name="title_activity_mapas_ven">Mapa</string>
 
 </resources>

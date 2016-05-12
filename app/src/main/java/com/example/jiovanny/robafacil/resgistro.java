@@ -43,8 +43,6 @@ public class resgistro extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 guardarSQLite();
-                Intent intent = new Intent(getApplicationContext(),Principal.class);
-                startActivity(intent);
             }
         });
         spiEstados.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -63,15 +61,17 @@ public class resgistro extends AppCompatActivity{
     }
     public void guardarSQLite(){
         String strError="";
+        if (spiEstados.getSelectedItemPosition()==0)
+            strError+="Selecciona un estado\n";
         if (edtTxtContra.getText().toString().isEmpty())
-            strError+="Ingresa la Contraseña\n";
+            strError+="Ingresa la contraseña\n";
         if (edtTxtEmail.getText().toString().isEmpty())
             strError+="Ingresa tu correo\n";
         if (edtTxtNombre.getText().toString().isEmpty())
             strError+="Ingresa tu nombre\n";
         if (!strError.equals("")){
             strError="Debes llenar los siguientes datos:\n"+strError;
-            Toast.makeText(this,strError,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,strError,Toast.LENGTH_LONG).show();
             return;
         }
         Usuario usr= new Usuario();
@@ -81,6 +81,13 @@ public class resgistro extends AppCompatActivity{
         usr.setEstado(estado);
         manjadorDb.addUsuario(usr);
         Toast.makeText(this,"Usuario Agregado con éxito",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(),Principal.class);
+        edtTxtContra.setText("");
+        edtTxtEmail.setText("");
+        edtTxtNombre.setText("");
+        spiEstados.setSelection(0);
+        startActivity(intent);
+
     }
 
 

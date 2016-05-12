@@ -100,6 +100,8 @@ public class Principal extends AppCompatActivity {
         Toast.makeText(this, "Ingresaste Correctamente", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Principal.this, com_ven.class);
         intent.putExtras(user);
+        edtTxtUsuario.setText("");
+        edtTxtContra.setText("");
         startActivity(intent);
         /*
         SQLiteDatabase sqLitedb=mydb.getReadableDatabase();

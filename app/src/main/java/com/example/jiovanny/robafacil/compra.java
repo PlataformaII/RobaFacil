@@ -36,18 +36,14 @@ public class compra extends AppCompatActivity{
     private ListView listViewProductos;
     private String correoVendedor;
     private Bundle bundleDaVen;
-
+    private Intent intentVendedor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //pruebas del funcionamiento del Intento
-        /*Intent leerUser = getIntent();
-        Bundle userLeido = leerUser.getExtras();
-        String user = userLeido.getString("USER");
-        //Toast.makeText(this, "Compras: " + user, Toast.LENGTH_SHORT).show();*/
+
         //Obtenemos una referencia a los controles de la interfaz
         listViewProductos=(ListView)findViewById(R.id.listVwProductos);
         spiCategorias = (Spinner) findViewById(R.id.spiCategorias);
@@ -59,30 +55,13 @@ public class compra extends AppCompatActivity{
         mydb = new MyBaseDatos(this,null,null,1);
 
         productoArrayList1=new ArrayList<Producto>();
-        //empezamos hacer la lista con ArrayAdapter
-        /*String[] idA= new String[mydb.getFilas()];
-        String[] nombreA = new String[mydb.getFilas()];
-        String[] descA= new String[mydb.getFilas()];
-        String[] precioA=new String[mydb.getFilas()];
-        String[] vendedorA=new String[mydb.getFilas()];*/
 
         for (int i=1;i<=mydb.getFilas();i++){
             productoArrayList1.add(mydb.getProducto(i));
         }
-        /*for (int i=0;i<mydb.getFilas();i++){
-            nombreA[i]= String.valueOf(productoArrayList1.get(i).getNombre());
-            descA[i]=productoArrayList1.get(i).getDescripcion();
-            precioA[i]= String.valueOf(productoArrayList1.get(i).getPrecio());
-            vendedorA[i]=productoArrayList1.get(i).getUser();
-        }*/
-        /*final AdaptadorLista adaptadorLista= new AdaptadorLista(this,android.R.layout.simple_list_item_1,R.id.txtVwNombreP,nombreA);
-        adaptadorLista.setNombreP(nombreA);
-        adaptadorLista.setDescP(descA);
-        adaptadorLista.setPrecioP(precioA);
-        adaptadorLista.setVendedorP(vendedorA);
-        listViewProductos.setAdapter(adaptadorLista);*/
         miAdaptador= new MiAdaptador(this,productoArrayList1);
         listViewProductos.setAdapter(miAdaptador);
+
         //implementacion del evento setOnQueryTextListener del spinner
         //fase de desarrollo
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -105,7 +84,12 @@ public class compra extends AppCompatActivity{
         listViewProductos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),"Hola",Toast.LENGTH_LONG).show();
+                correoVendedor=productoArrayList1.get(position).getUser();
+                bundleDaVen= new Bundle();
+                bundleDaVen.putString("CORREOV",correoVendedor);
+                intentVendedor= new Intent(compra.this,InfoVen.class);
+                intentVendedor.putExtras(bundleDaVen);
+                startActivity(intentVendedor);
             }
         });
     }//fin del metodoOnCreate
