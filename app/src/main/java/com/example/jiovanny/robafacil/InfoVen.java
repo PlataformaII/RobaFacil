@@ -18,6 +18,9 @@ public class InfoVen extends AppCompatActivity {
     private Button btnMostrarMapa;
     private String correoVendedor;
     private MyBaseDatos mydb;
+    private Usuario usuario;
+    private String estado;
+    private Bundle bundleEstado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +42,18 @@ public class InfoVen extends AppCompatActivity {
         btnMostrarMapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                estado=usuario.getEstado();
+                bundleEstado=new Bundle();
+                bundleEstado.putString("ESTADO",estado);
                 intentMapa= new Intent(InfoVen.this,MapasVen.class);
+                intentMapa.putExtras(intentMapa);
+                Toast.makeText(getApplicationContext(),estado,Toast.LENGTH_SHORT).show();
                 startActivity(intentMapa);
             }
         });
     }
     public void cargarSQLiteUsuario(){
-        Usuario usuario=mydb.getUsuario(correoVendedor);
+        usuario=mydb.getUsuario(correoVendedor);
         if (usuario==null){
             Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
         }else{
