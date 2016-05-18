@@ -87,7 +87,7 @@ public class compra extends AppCompatActivity{
                 correoVendedor=productoArrayList1.get(position).getUser();
                 bundleDaVen= new Bundle();
                 bundleDaVen.putString("CORREOV",correoVendedor);
-                intentVendedor= new Intent(compra.this,InfoVen.class);
+                intentVendedor= new Intent(compra.this,InfoVendedor.class);
                 intentVendedor.putExtras(bundleDaVen);
                 startActivity(intentVendedor);
             }

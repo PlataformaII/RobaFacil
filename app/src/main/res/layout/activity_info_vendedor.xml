@@ -11,4 +11,85 @@
     tools:context="com.example.jiovanny.robafacil.InfoVendedor">
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView4" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwTitNomVen"
+                android:textColor="#000000"
+                android:text="@string/nombVendedor"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwNomVen"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwTitCorreo"
+                android:textColor="#000000"
+                android:text="@string/corrVendedor"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwCorreo"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwTitUbi"
+                android:textColor="#000000"
+                android:text="@string/ubiVendedor"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwUbi"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20sp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mapaVendedor"
+                android:id="@+id/btnMapaVendedor"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
